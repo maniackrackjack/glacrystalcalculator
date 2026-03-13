@@ -1,204 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+
 <meta charset="UTF-8">
 <title>Tibia Crystal Calculator</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
+<link rel="stylesheet" href="style.css">
 
-/* ===== UI ESTILO TIBIA ===== */
-
-body{
-margin:0;
-background:#3c2a18;
-font-family:Verdana;
-color:#f0e0b0;
-}
-
-.app{
-display:flex;
-min-height:100vh;
-}
-
-/* sidebar */
-
-.sidebar{
-width:200px;
-background:#2a1a0e;
-border-right:4px solid #6a4a20;
-padding:10px;
-}
-
-.sidebar h2{
-color:#ffd66b;
-text-align:center;
-}
-
-.tabBtn{
-width:100%;
-padding:10px;
-margin-bottom:6px;
-border:none;
-background:#4a2e14;
-color:#f0e0b0;
-cursor:pointer;
-font-weight:bold;
-}
-
-.tabBtn.active{
-background:#a0742b;
-color:black;
-}
-
-/* content */
-
-.content{
-flex:1;
-padding:15px;
-}
-
-/* janela tibia */
-
-.panel{
-background:#2a1a0e;
-border:4px solid #6a4a20;
-padding:12px;
-margin-bottom:10px;
-max-width:600px;
-}
-
-/* item grid */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:8px;
-margin-bottom:10px;
-}
-
-.itemBtn{
-background:#4a2e14;
-border:2px solid #6a4a20;
-text-align:center;
-cursor:pointer;
-padding:8px;
-}
-
-.itemBtn img{
-width:32px;
-}
-
-/* botões */
-
-.buttons{
-display:flex;
-gap:6px;
-margin-bottom:10px;
-}
-
-.buttons button{
-flex:1;
-padding:8px;
-font-weight:bold;
-cursor:pointer;
-border:none;
-}
-
-.setBtn{background:#7a9e2f}
-.saveBtn{background:#a0742b}
-.loadBtn{background:#5a7ca0}
-.clearBtn{background:#8a2a2a}
-
-/* cards */
-
-.card{
-background:#4a2e14;
-border:2px solid #6a4a20;
-padding:10px;
-margin-bottom:8px;
-}
-
-.cardHeader{
-display:flex;
-align-items:center;
-gap:6px;
-margin-bottom:6px;
-}
-
-.cardHeader img{
-width:26px;
-}
-
-.remove{
-margin-left:auto;
-background:#8a2a2a;
-border:none;
-color:white;
-cursor:pointer;
-}
-
-/* stats */
-
-.statLabel{
-font-size:12px;
-}
-
-input{
-width:100%;
-padding:4px;
-margin-bottom:4px;
-}
-
-/* barra segmentada */
-
-.segmentBar{
-display:flex;
-gap:2px;
-margin-bottom:4px;
-}
-
-.segment{
-flex:1;
-height:10px;
-background:#201208;
-border:1px solid #000;
-}
-
-.segment.filled{
-background:#ffd66b;
-}
-
-/* textos */
-
-.legendary{
-color:#ffd66b;
-font-weight:bold;
-}
-
-.comboGood{
-color:#66ff66;
-}
-
-.comboBad{
-color:#ff6666;
-}
-
-/* tabelas */
-
-.tableItem{
-background:#4a2e14;
-border:2px solid #6a4a20;
-padding:10px;
-margin-bottom:10px;
-}
-
-.comboList{
-font-family:monospace;
-line-height:1.6;
-}
-
-</style>
 </head>
 
 <body>
@@ -209,14 +18,17 @@ line-height:1.6;
 
 <h2>Menu</h2>
 
-<button class="tabBtn active" onclick="switchTab('calc',this)">Calculadora</button>
-<button class="tabBtn" onclick="switchTab('tables',this)">Tabelas</button>
+<button class="tabBtn active" onclick="switchTab('calc',this)">
+Calculadora
+</button>
+
+<button class="tabBtn" onclick="switchTab('tables',this)">
+Tabelas
+</button>
 
 </div>
 
 <div class="content">
-
-<!-- CALCULADORA -->
 
 <div id="calc">
 
@@ -226,21 +38,46 @@ line-height:1.6;
 
 <div class="grid">
 
-<div class="itemBtn" onclick="addItem('chapeu')"><img src="icons/chapeu.png"><br>Chapéu</div>
-<div class="itemBtn" onclick="addItem('camisa')"><img src="icons/camisa.png"><br>Camisa</div>
-<div class="itemBtn" onclick="addItem('calca')"><img src="icons/calca.png"><br>Calça</div>
-<div class="itemBtn" onclick="addItem('sabre')"><img src="icons/sabre.png"><br>Sabre</div>
-<div class="itemBtn" onclick="addItem('colar')"><img src="icons/colar.png"><br>Colar</div>
-<div class="itemBtn" onclick="addItem('emblema')"><img src="icons/emblema.png"><br>Emblema</div>
-<div class="itemBtn" onclick="addItem('anel')"><img src="icons/anel.png"><br>Anel</div>
+<div class="itemBtn" onclick="addItem('chapeu')">
+<img src="icons/chapeu.png"><br>Chapéu
+</div>
+
+<div class="itemBtn" onclick="addItem('camisa')">
+<img src="icons/camisa.png"><br>Camisa
+</div>
+
+<div class="itemBtn" onclick="addItem('calca')">
+<img src="icons/calca.png"><br>Calça
+</div>
+
+<div class="itemBtn" onclick="addItem('sabre')">
+<img src="icons/sabre.png"><br>Arma
+</div>
+
+<div class="itemBtn" onclick="addItem('colar')">
+<img src="icons/colar.png"><br>Colar
+</div>
+
+<div class="itemBtn" onclick="addItem('emblema')">
+<img src="icons/emblema.png"><br>Emblema
+</div>
+
+<div class="itemBtn" onclick="addItem('anel')">
+<img src="icons/anel.png"><br>Anel
+</div>
 
 </div>
 
 <div class="buttons">
-<button class="setBtn" onclick="addFullSet()">Set Completo</button>
-<button class="saveBtn" onclick="saveBuild()">Salvar</button>
-<button class="loadBtn" onclick="loadBuild()">Carregar</button>
-<button class="clearBtn" onclick="clearBuild()">Limpar</button>
+
+<button class="setBtn" onclick="addFullSet()">
+Adicionar Set Completo
+</button>
+
+<button class="clearBtn" onclick="clearBuild()">
+Limpar
+</button>
+
 </div>
 
 <div id="itemsArea"></div>
@@ -250,314 +87,28 @@ Cristais totais necessários: 0
 </div>
 
 </div>
+
 </div>
 
-<!-- TABELAS -->
 
 <div id="tables" style="display:none">
 
 <div class="panel">
 
-<h3>Tabelas de Combinações</h3>
+<h3>Tabelas de Combinação</h3>
 
 <div id="tablesArea"></div>
 
 </div>
+
+</div>
+
 </div>
 
 </div>
-</div>
 
-<script>
-
-/* CONFIG */
-
-const itens={
-
-chapeu:{
-nome:"Chapéu",
-icon:"icons/chapeu.png",
-min:{vit:44,def:390},
-max:{vit:59,def:499},
-gain:{vit:1,def:15}
-},
-
-camisa:{
-nome:"Camisa",
-icon:"icons/camisa.png",
-min:{vit:56,def:1900},
-max:{vit:73,def:2460},
-gain:{vit:1,def:40}
-},
-
-calca:{
-nome:"Calça",
-icon:"icons/calca.png",
-min:{vit:10,def:1876},
-max:{vit:14,def:1996},
-gain:{vit:1,def:30}
-},
-
-sabre:{
-nome:"Sabre",
-icon:"icons/sabre.png",
-min:{atk:7380},
-max:{atk:8600},
-gain:{atk:80}
-},
-
-colar:{
-nome:"Colar",
-icon:"icons/colar.png",
-min:{atk:4690},
-max:{atk:5400},
-gain:{atk:30}
-},
-
-emblema:{
-nome:"Emblema",
-icon:"icons/emblema.png",
-min:{pen:2390},
-max:{pen:2755},
-gain:{pen:35}
-},
-
-anel:{
-nome:"Anel",
-icon:"icons/anel.png",
-min:{atk:1500,crit:125},
-max:{atk:1650,crit:135},
-gain:{atk:30,crit:1}
-}
-
-}
-
-/* tabs */
-
-function switchTab(tab,btn){
-
-document.querySelectorAll(".tabBtn").forEach(b=>b.classList.remove("active"))
-btn.classList.add("active")
-
-calc.style.display="none"
-tables.style.display="none"
-
-document.getElementById(tab).style.display="block"
-
-}
-
-/* calculadora */
-
-let idCounter=0
-
-function addItem(tipo){
-
-const item=itens[tipo]
-const id="item"+idCounter++
-
-let html=`<div class="card" id="${id}" data="${tipo}">
-
-<div class="cardHeader">
-<img src="${item.icon}">
-<b>${item.nome}</b>
-<button class="remove" onclick="removeItem('${id}')">X</button>
-</div>
-`
-
-for(let stat in item.max){
-
-html+=`
-<div class="statLabel">${stat.toUpperCase()}</div>
-
-<input type="number"
-data-stat="${stat}"
-placeholder="${item.min[stat]}"
-oninput="recalc()">
-
-<div class="segmentBar" id="${id}_${stat}_bar"></div>
-`
-}
-
-html+=`<div id="${id}_result"></div></div>`
-
-itemsArea.insertAdjacentHTML("beforeend",html)
-
-recalc()
-
-}
-
-function addFullSet(){
-Object.keys(itens).forEach(addItem)
-}
-
-function removeItem(id){
-document.getElementById(id).remove()
-recalc()
-}
-
-/* combinação */
-
-function statsCombinam(tipo,stats){
-
-const item=itens[tipo]
-const keys=Object.keys(item.max)
-
-if(keys.length<2) return null
-
-let cristais=null
-
-for(let stat of keys){
-
-let diff=stats[stat]-item.min[stat]
-
-if(diff%item.gain[stat]!=0) return false
-
-let c=diff/item.gain[stat]
-
-if(cristais===null) cristais=c
-else if(cristais!==c) return false
-
-}
-
-return true
-
-}
-
-/* recalculo */
-
-function recalc(){
-
-let total=0
-
-document.querySelectorAll(".card").forEach(card=>{
-
-let tipo=card.getAttribute("data")
-let item=itens[tipo]
-
-let cristais=0
-let lendario=true
-let stats={}
-
-for(let stat in item.max){
-
-let input=card.querySelector(`[data-stat=${stat}]`)
-let val=parseInt(input.value)||item.min[stat]
-
-stats[stat]=val
-
-if(val<item.max[stat]) lendario=false
-
-let falt=item.max[stat]-val
-let need=Math.ceil(falt/item.gain[stat])
-
-if(need>cristais) cristais=need
-
-/* barra segmentada */
-
-let bar=card.querySelector(`#${card.id}_${stat}_bar`)
-bar.innerHTML=""
-
-for(let i=0;i<need;i++){
-
-let seg=document.createElement("div")
-seg.className="segment"
-
-bar.appendChild(seg)
-
-}
-
-}
-
-total+=cristais
-
-let comb=statsCombinam(tipo,stats)
-
-let res=card.querySelector(`#${card.id}_result`)
-
-if(lendario){
-
-res.innerHTML=`<span class="legendary">STATUS LENDÁRIO</span>`
-
-}else{
-
-let txt=`Cristais: ${cristais} | Recomendado: ${Math.max(cristais-1,0)}`
-
-if(comb===true) txt+=`<br><span class="comboGood">Stats combinados</span>`
-if(comb===false) txt+=`<br><span class="comboBad">Stats não combinam</span>`
-
-res.innerHTML=txt
-
-}
-
-})
-
-summary.innerHTML=`Cristais totais necessários: ${total}`
-
-}
-
-/* tabelas */
-
-function gerarTabelas(){
-
-let html=""
-
-for(let key in itens){
-
-let item=itens[key]
-let stats=Object.keys(item.max)
-
-let combos=[]
-
-for(let c=0;c<100;c++){
-
-let valores=[]
-
-for(let s of stats){
-
-let v=item.min[s]+c*item.gain[s]
-
-if(v>item.max[s]) break
-
-valores.push(v)
-
-}
-
-if(valores.length!=stats.length) break
-
-combos.push(valores.join("/"))
-
-}
-
-let recomendado=combos[combos.length-2]
-
-html+=`
-
-<div class="tableItem">
-
-<b>${item.nome}</b><br>
-
-Min: ${Object.values(item.min).join("/")} |
-Recomendado: ${recomendado} |
-Max: ${Object.values(item.max).join("/")}
-
-<br><br>
-
-<div class="comboList">
-${combos.join("  ")}
-</div>
-
-</div>
-`
-
-}
-
-tablesArea.innerHTML=html
-
-}
-
-gerarTabelas()
-
-</script>
+<script src="data.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
