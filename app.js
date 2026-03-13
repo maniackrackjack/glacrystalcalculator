@@ -163,29 +163,76 @@ let html=""
 
 for(let key in itens){
 
-let item = itens[key]
-let recomendado = recomendados[key]
-let combos = combosValidos[key]
+let item=itens[key]
+let recomendado=recomendados[key]
+let combos=combosValidos[key]
 
-let lista = "Status único"
-
-if(combos) lista = combos.join("  ")
+let minStats=Object.values(item.min).join("/")
+let maxStats=Object.values(item.max).join("/")
 
 html+=`
 <div class="tableItem">
 
-<b>${item.nome}</b><br>
+<img class="tableIcon" src="${item.icon}">
 
-Min: ${Object.values(item.min).join("/")} |
-Recomendado: ${recomendado} |
-Max: ${Object.values(item.max).join("/")}
+<div class="tableName">
+${item.nome}
+</div>
 
-<br><br>
+<div class="tableStats">
 
-<div class="comboList">${lista}</div>
+<span class="statMin">
+Min: ${minStats}
+</span>
+
+<br>
+
+<span class="statRec">
+Rec: ${recomendado}
+</span>
+
+<br>
+
+<span class="statMax">
+Max: ${maxStats}
+</span>
 
 </div>
 `
+
+if(combos){
+
+html+=`
+<table class="comboTable">
+<tbody>
+`
+
+combos.forEach(c=>{
+
+html+=`
+<tr>
+<td>${c}</td>
+</tr>
+`
+
+})
+
+html+=`
+</tbody>
+</table>
+`
+
+}else{
+
+html+=`
+<div class="singleStat">
+Stat único
+</div>
+`
+
+}
+
+html+=`</div>`
 
 }
 

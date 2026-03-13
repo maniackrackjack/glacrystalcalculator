@@ -187,3 +187,153 @@ grid-template-columns:1fr;
 }
 
 }
+
+/* CORES DOS STATS */
+
+.statMin{
+color:#e8f3ff; /* branco gelo */
+font-weight:bold;
+}
+
+.statRec{
+color:#b766fa; /* roxo recomendado */
+font-weight:bold;
+text-shadow:0 0 6px #b766fa88;
+}
+
+.statMax{
+color:#ffbf00; /* dourado */
+font-weight:bold;
+text-shadow:0 0 6px #ffbf0088;
+}
+
+
+/* ITEM HEADER NA TABELA */
+
+.tableHeader{
+display:flex;
+align-items:center;
+gap:8px;
+margin-bottom:8px;
+font-size:16px;
+font-weight:bold;
+}
+
+.tableHeader img{
+width:28px;
+}
+
+/* TABELA DE COMBOS */
+
+.comboTable{
+width:100%;
+border-collapse:collapse;
+margin-top:8px;
+font-family:monospace;
+}
+
+.comboTable th{
+background:#3a2410;
+border:1px solid #6a4a20;
+padding:4px;
+}
+
+.comboTable td{
+border:1px solid #6a4a20;
+padding:4px;
+text-align:center;
+}
+
+/* GRID DA ABA TABELAS */
+
+#tablesArea{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:12px;
+}
+
+.singleStat{
+  margin:20px auto 0;
+  height: 120px;
+  padding:12px 0;
+  width:max-content;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-style:italic;
+  color:#cccccc;
+  font-weight: bolder;
+  text-align:center;
+}
+
+
+/* GRID INVENTÁRIO */
+
+#tablesArea{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:14px;
+}
+
+/* SLOT ITEM */
+
+.tableItem{
+background:#2f1c0c;
+border:2px solid #6a4a20;
+padding:10px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+/* ICONE */
+
+.tableIcon{
+width:48px;
+margin-bottom:6px;
+}
+
+/* NOME ITEM */
+
+.tableName{
+font-weight:bold;
+margin-bottom:6px;
+}
+
+/* STATS */
+
+.tableStats{
+text-align:center;
+margin-bottom:8px;
+font-size:13px;
+}
+
+/* TABELA COMBOS */
+
+.comboTable{
+width:100%;
+border-collapse:collapse;
+font-family:monospace;
+font-size:12px;
+}
+
+.comboTable td{
+border:1px solid #6a4a20;
+padding:3px;
+text-align:center;
+}
+
+/* STAT UNICO */
+
+.singleStat{
+height:70px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-style:italic;
+color:#bbbbbb;
+width:100%;
+}
