@@ -1,114 +1,141 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>Page Moved</title>
 
-<meta charset="UTF-8">
-<title>Tibia Crystal Calculator</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Auto redirect after 5 seconds -->
+  <meta http-equiv="refresh" content="5; url=https://maniackrackjack.github.io/labophase/">
 
-<link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: Arial, sans-serif;
+      color: white;
+    }
 
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .image img {
+      width: 180px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .text {
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #00eaff, #00ffcc, #00eaff);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 3s linear infinite, glow 1.5s ease-in-out infinite alternate;
+    }
+
+    .lang-block {
+      margin-bottom: 20px;
+    }
+
+    .lang-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      opacity: 0.8;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 5px 0;
+    }
+
+    a {
+      color: #00eaff;
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      border-bottom: 2px solid #00eaff;
+    }
+
+    /* Animations */
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00eaff; }
+      to { text-shadow: 0 0 25px #00ffff; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0%; }
+      100% { background-position: 200%; }
+    }
+
+    /* Mobile */
+    @media (max-width: 650px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .image img {
+        width: 140px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    
+    <div class="image">
+      <img src="./vegapunk.png" alt="Moved">
+    </div>
 
-<div class="app">
+    <div class="text">
+      <h1>🚨 Page Moved / Página Movida</h1>
 
-<div class="sidebar">
+      <div class="lang-block">
+        <div class="lang-title">🇺🇸 English</div>
+        <p>This page or service has moved to a new location.</p>
+        <p>You will be redirected automatically.</p>
+      </div>
 
-<h2>Menu</h2>
+      <div class="lang-block">
+        <div class="lang-title">🇧🇷 Português</div>
+        <p>Esta página ou serviço foi movido para um novo endereço.</p>
+        <p>Você será redirecionado automaticamente.</p>
+      </div>
 
-<button class="tabBtn active" onclick="switchTab('calc',this)">
-Calculadora
-</button>
+      <p>
+        👉 <a href="https://maniackrackjack.github.io/labophase/">
+          Go to new page / Ir para a nova página
+        </a>
+      </p>
 
-<button class="tabBtn" onclick="switchTab('tables',this)">
-Tabelas
-</button>
-
-</div>
-
-<div class="content">
-
-<div id="calc">
-
-<div class="panel">
-
-<h3>Crystal Calculator</h3>
-
-<div class="grid">
-
-<div class="itemBtn" onclick="addItem('chapeu')">
-<img src="icons/chapeu.png"><br>Chapéu
-</div>
-
-<div class="itemBtn" onclick="addItem('camisa')">
-<img src="icons/camisa.png"><br>Camisa
-</div>
-
-<div class="itemBtn" onclick="addItem('calca')">
-<img src="icons/calca.png"><br>Calça
-</div>
-
-<div class="itemBtn" onclick="addItem('sabre')">
-<img src="icons/sabre.png"><br>Arma
-</div>
-
-<div class="itemBtn" onclick="addItem('colar')">
-<img src="icons/colar.png"><br>Colar
-</div>
-
-<div class="itemBtn" onclick="addItem('emblema')">
-<img src="icons/emblema.png"><br>Emblema
-</div>
-
-<div class="itemBtn" onclick="addItem('anel')">
-<img src="icons/anel.png"><br>Anel
-</div>
-
-</div>
-
-<div class="buttons">
-
-<button class="setBtn" onclick="addFullSet()">
-Adicionar Set Completo
-</button>
-
-<button class="clearBtn" onclick="clearBuild()">
-Limpar
-</button>
-
-</div>
-
-<div id="itemsArea"></div>
-
-<div id="summary">
-Cristais totais necessários: 0
-</div>
-
-</div>
-
-</div>
-
-
-<div id="tables" style="display:none">
-
-<div class="panel">
-
-<h3>Tabelas de Combinação</h3>
-
-<div id="tablesArea"></div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<script src="data.js"></script>
-<script src="app.js"></script>
-
+    </div>
+  </div>
 </body>
 </html>
